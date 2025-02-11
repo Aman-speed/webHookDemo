@@ -22,6 +22,20 @@ async function getUserDetails(req,res){
     }
 }
 
+
+async function gitWebHookCallback(req,res){
+    try{
+        console.log(req.body);
+        res.status(200).send({
+            'message':req.body
+        })
+    }
+    catch(error){
+        console.log(error.message);
+    }
+}
+
 module.exports = {
-    getUserDetails
+    getUserDetails,
+    gitWebHookCallback
 }
